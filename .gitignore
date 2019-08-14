@@ -1,0 +1,7 @@
+.idea/
+data/
+trained_models/
+__pycache__/
+*.tar.gz
+*.ckpt
+
