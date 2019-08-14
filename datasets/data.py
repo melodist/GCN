@@ -23,7 +23,7 @@ def read_data(data_dir, image_size, no_label=False):
     for im_path in im_paths:
         # image load
         im_name = os.path.splitext(os.path.basename(im_path))[0]
-        im = cv2.imread(im_path)
+        im = cv2.imread(im_path, cv2.IMREAD_COLOR)  # read grayscale image as BGR
         im = crop_shape(im, image_size)
         im = padding(im, image_size)
         imgs.append(im)
@@ -38,17 +38,14 @@ def read_data(data_dir, image_size, no_label=False):
         mask = crop_shape(mask, image_size)
         mask = padding(mask, image_size, fill=2)
 
-        label = np.zeros((image_size[0], image_size[1], 3), dtype=np.float32)
+        label = np.zeros((image_size[0], image_size[1], 2), dtype=np.float32)
         label.fill(-1)
-        # Pixel annotations 1:Foreground, 2:Background, 3:Unknown
-        idx = np.where(mask == 2)
-        label[idx[0],idx[1],:] = [1, 0, 0]
+        # Pixel annotations 0 : Background, 255 : Foreground
+        idx = np.where(mask == 0)
+        label[idx[0],idx[1],:] = [1, 0]
 
-        idx = np.where(mask == 1)
-        if im_name[0].isupper():
-            label[idx[0],idx[1],:] = [0, 1, 0]
-        else:
-            label[idx[0],idx[1],:] = [0, 0, 1]
+        idx = np.where(mask == 255)
+        label[idx[0],idx[1],:] = [0, 1]
         labels.append(label)
 
     X_set = np.array(imgs, dtype=np.float32)
