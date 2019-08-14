@@ -9,12 +9,12 @@ from learning.evaluators import AccuracyEvaluator as Evaluator
 from learning.utils import draw_pixel
 
 """ 1. Load dataset """
-root_dir = os.path.join('data/catdog/')    # FIXME
+root_dir = os.path.join('data/small/')    # FIXME
 test_dir = os.path.join(root_dir, 'test')
 
 # Set image size and number of class
 IM_SIZE = (512, 512)
-NUM_CLASSES = 3
+NUM_CLASSES = 2
 
 # Load test set
 X_test, y_test = dataset.read_data(test_dir, IM_SIZE)
@@ -49,7 +49,7 @@ if not os.path.isdir(draw_dir):
     os.mkdir(draw_dir)
 im_dir = os.path.join(test_dir, 'images') # FIXME
 im_paths = []
-im_paths.extend(glob.glob(os.path.join(im_dir, '*.jpg')))
+im_paths.extend(glob.glob(os.path.join(im_dir, '*.png')))
 test_outputs = draw_pixel(test_y_pred)
 test_results = test_outputs + test_set.images
 for img, im_path in zip(test_results, im_paths):
