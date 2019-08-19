@@ -3,6 +3,8 @@ Object-detection-tutorials with Encoder-Decoder
 
 # Contributor
 - Jongsoo Keum
+http://research.sualab.com/practice/2018/11/23/image-segmentation-deep-learning.html
+https://github.com/sualab/tf-segmentation
 
 ## Requirements
 Python 3.5
@@ -18,9 +20,10 @@ tensorflow-gpu == 1.5.0
 For training
 - LIDC-IDRI datasets
 - Nodule Malignancy > 3
-- 15221 images total
+- 15221 images total 
 
 For test
 - LIDC-IDRI datasets
 - Nodule Malignancy < 3
 - 150 images total
+
