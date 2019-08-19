@@ -3,8 +3,8 @@ Object-detection-tutorials with Encoder-Decoder
 
 # Contributor
 - Jongsoo Keum
-http://research.sualab.com/practice/2018/11/23/image-segmentation-deep-learning.html
-https://github.com/sualab/tf-segmentation
+- http://research.sualab.com/practice/2018/11/23/image-segmentation-deep-learning.html
+- https://github.com/sualab/tf-segmentation
 
 ## Requirements
 Python 3.5
