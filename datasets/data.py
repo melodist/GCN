@@ -17,7 +17,7 @@ def read_data(data_dir, image_size, no_label=False):
     """
     im_paths = []
     for x in EXT:
-        im_paths.extend(glob.glob(os.path.join(data_dir, 'images', '*.{}'.format(x))))
+        im_paths.extend(glob.glob(os.path.join(data_dir, 'images', '*_5.{}'.format(x))))
     imgs = []
     labels = []
     for im_path in im_paths:

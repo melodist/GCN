@@ -8,7 +8,7 @@ from learning.optimizers import MomentumOptimizer as Optimizer
 from learning.evaluators import AccuracyEvaluator as Evaluator
 
 """ 1. Load and split datasets """
-root_dir = os.path.join('data/small/')
+root_dir = os.path.join('data/original/')
 trainval_dir = os.path.join(root_dir, 'train')
 
 # Set image size and number of class
@@ -18,7 +18,7 @@ NUM_CLASSES = 2
 # Load trainval set and split into train/val sets
 X_trainval, y_trainval = dataset.read_data(trainval_dir, IM_SIZE)
 trainval_size = X_trainval.shape[0]
-val_size = int(trainval_size * 0.1)
+val_size = int(trainval_size * 0.05)
 val_set = dataset.DataSet(X_trainval[:val_size], y_trainval[:val_size])
 train_set = dataset.DataSet(X_trainval[val_size:], y_trainval[val_size:])
 
@@ -26,8 +26,8 @@ train_set = dataset.DataSet(X_trainval[val_size:], y_trainval[val_size:])
 hp_d = dict()
 
 # FIXME: Training hyperparameters
-hp_d['batch_size'] = 8
-hp_d['num_epochs'] = 5
+hp_d['batch_size'] = 32
+hp_d['num_epochs'] = 100
 hp_d['init_learning_rate'] = 1e-3
 hp_d['momentum'] = 0.9
 hp_d['learning_rate_patience'] = 10

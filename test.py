@@ -9,7 +9,7 @@ from learning.evaluators import AccuracyEvaluator as Evaluator
 from learning.utils import draw_pixel
 
 """ 1. Load dataset """
-root_dir = os.path.join('data/small/')    # FIXME
+root_dir = os.path.join('data/original/')    # FIXME
 test_dir = os.path.join(root_dir, 'test')
 
 # Set image size and number of class
